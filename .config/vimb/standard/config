@@ -1,0 +1,164 @@
+# Homepage
+set home-page=https://www.duckduckgo.com
+
+## Appearance
+
+# Fullscreen
+set fullscreen=false
+
+# Font
+set defaultencoding=UTF-8
+set fontsize=
+set minimumfontsize=
+set monofontsize=
+
+set defaultfont=Terminus
+set cursivfont=LucidiaTypewriter
+set monofont=Terminus
+set sansfont=Sans
+set seriffont=Liberation Serif
+
+# Images
+set images=true
+set auto-shrink-images=true
+set respect-image-orientation=true
+
+# Text
+set resizable-text-areas=true
+
+# Status bar
+set statusbar=true
+
+set status-color-bg=#202020
+set status-color-fg=#C31014
+set status-font=Terminus
+
+set status-ssl-color-bg=#202020
+set status-ssl-color-fg=#C31014
+set status-ssl-font=Terminus
+
+set status-sslinvalid-color-bg=#202020
+set status-sslinvalid-color-fg=#C31014
+set status-sslinvalid-font=Terminus
+
+# Input field
+set input-autohide=true
+
+set input-bg-normal=#202020
+set input-fg-normal=#C31014
+set input-font-normal=Terminus
+
+set input-bg-error=#202020
+set input-fg-error=#C31014
+set input-font-error=Terminus
+
+# Completion bar
+set completion-font=Terminus
+
+set completion-bg-active=#202020
+set completion-fg-active=#C31014
+
+set completion-bg-normal=#202020
+set completion-fg-normal=#C31014
+
+# General
+set frame-flattening=true
+set print-backgrounds=true
+set stylesheet=true
+
+## Behavior
+
+# Accelerated compositing
+set accelerated-compositing=true
+
+# Scrolling
+set smooth-scrolling=true
+
+# Spell checking
+set spell-checking=true
+set spell-checking-languages=(en_GB)
+
+# useragent (Ubuntu, 32bit, Firefox 40)
+set useragent=Mozilla/5.0 (X11; Ubuntu; Linux x86; rv:35.0) Gecko/20100101 Firefox/40.0
+# useragent (Android, Firefox 35)
+#set useragent=Mozilla/5.0 (Android; Mobile; rv:35.0) Gecko/35.0 Firefox/35.0
+# useragent (Ubuntu, 32bit, Chrome 44)
+#set useragent="Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.22 (KHTML like Gecko) Ubuntu Chromium/44.0.2403.155 Chrome/44.0.2403.155 Safari/537.22"
+
+# Javascript can force focus
+set strict-focus=true
+
+# Javascript
+set scripts=true
+
+## Security
+
+# Private browsing
+set private-browsing=false
+
+# Proxy server
+set proxy=
+
+# Force SSL
+set strict-ssl=false
+
+# Cookies
+set cookie-accept=origin
+set cookie-timeout=1410065407
+set cookie-expire-time=1410065407
+
+# DNS prefetching
+set dns-prefetching=false
+
+# Insecure content
+set insecure-content-run=false
+set insecure-content-show=true
+
+## Plugins & Applications
+
+# Enable/disable plugins
+set plugins=true
+
+# Web audio
+set webaudio=true
+
+# WebGL
+set webgl=true
+
+# Web Inspector
+set webinspector=true
+
+# Editor
+set editor-command=urxvt -e vim
+
+# Media
+set media-playback-allows-inline=true
+set media-playback-requires-user-gesture=true
+set media-stream=true
+set mediasource=true
+
+# Java & javascript
+set java-applet=false
+set javascript-can-access-clipboard=false
+set javascript-can-open-windows-automatically=false
+
+## Downloads 
+
+# Download application
+set download-use-external=false
+set download-command=
+
+# Download path
+set download-path=~/Downloads
+
+## Other 
+
+# DOM paste
+set dom-paste=false
+
+# History
+set history-max-items=10000
+
+# Cache
+set maximum-cache-size=
+set pagecache=true

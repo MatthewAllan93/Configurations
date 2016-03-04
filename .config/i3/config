@@ -1,0 +1,208 @@
+## i3 window manager configuration file
+## Please see http://i3wm.org/docs/userguide.html for a complete reference.
+
+## Set mod key
+set $mod Mod4
+
+## Start a terminal
+bindsym $mod+Return exec urxvt
+
+## Use mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+## Start Dmenu
+bindsym $mod+d exec "dmenu_run -b -fn 'Terminus:9' -nb '#111111' -sb '#111111' -sf '#C31014' -nf '#808080'"
+
+## Start Passmenu
+bindsym $mod+p exec "passmenu -b -fn 'Terminus:9' -nb '#111111' -sb '#111111' -sf '#C31014' -nf '#808080'"
+
+## i3-Dmenu-Desktop is a wrapper around Dmenu, which only displays applications shipping a .desktop file. However Dmenu does still need to be installed to use this wrapper.
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop 
+
+## Customised windows border
+## Window border style
+## bn: border normal, with window title bar
+## bp: border only, no window title bar
+## bb: no border or window title bar
+
+## Window border colours
+## Class                 Border  Background  Text    Indicator
+client.focused          #000000 #000000     #C31014 #207000
+client.focused_inactive #000000 #000000     #C31014 #484E50
+client.unfocused        #000000 #000000     #C31014 #292D2E
+client.urgent           #000000 #000000     #C31014 #900000
+
+## Font for window titles. will also be used by the bar unless a different font is used in the bar {} block below. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+## The font above is very space-efficient, that is, it looks good, sharp & clear in small sizes. However, if you need a lot of Unicode glyphs or right-to-left text rendering, you should instead use pango for rendering and a FreeType font.
+font pango:Terminus 9
+
+## Enter fullscreen mode
+bindsym $mod+f fullscreen
+
+## Change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+## Kill focused window
+bindsym $mod+Shift+q kill
+
+## Change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+## Moving focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+## Split in horizontal orientation
+bindsym $mod+h split h
+
+## Split in vertical orientation
+bindsym $mod+v split v
+
+## Toggle between tiling & floating
+bindsym $mod+Shift+space floating toggle
+
+## Change focus between tiling & floating windows
+bindsym $mod+space focus mode_toggle
+
+## Focus the parent container
+bindsym $mod+a focus parent
+
+## Focus the child container
+## bindsym $mod+d focus child
+
+## Switch to workspace 
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 0
+
+## Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 0
+
+## Reload the configuration file
+bindsym $mod+Shift+c reload
+
+## Restart i3 window manager (this preserves your layout and session. It can also be used to upgrade i3.)
+bindsym $mod+Shift+r restart
+
+## Exit i3 window manager (logs you out of your X session.)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+## Resize mode
+bindsym $mod+r mode "resize"
+mode "resize" {
+
+## Keybindings with letter keys (to shrink left for width and right for height.)
+bindsym j resize shrink width 10 px or 10 ppt
+bindsym k resize grow height 10 px or 10 ppt
+bindsym l resize shrink height 10 px or 10 ppt
+bindsym semicolon resize grow width 10 px or 10 ppt
+
+## Same keybindings but are for the arrow keys.
+bindsym Left resize shrink width 10 px or 10 ppt
+bindsym Down resize grow height 10 px or 10 ppt
+bindsym Up resize shrink height 10 px or 10 ppt
+bindsym Right resize grow width 10 px or 10 ppt
+
+## Keybindings for exiting the resize mode
+bindsym Return mode "default"
+bindsym Escape mode "default"
+}
+
+## Start i3bar to display a workspace bar (plus the system information uses conky to finds out, if available. But i3status can be used instead, just uncomment the line for i3status and comment the line for the conky script.)
+## i3bar customisation
+bar {
+mode dock
+workspace_buttons yes
+status_command i3status
+#status_command ~/.config/i3/conky.sh
+tray_output DVI-I-1
+position top
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font xft:Terminus, FontAwesome 9
+colors {
+background #282828
+statusline #C31014 
+focused_workspace #FFFFFF #C31014 
+active_workspace #FFFFFF #333333
+inactive_workspace #FFFFFF #333333
+urgent_workspace #FFFFFF #C0C0C0
+}
+}
+
+## Multimedia keys (using Alsamixer)
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioPlay exec "~/.bin/player toggle"
+bindsym XF86AudioStop exec "~/.bin/player stop"
+bindsym XF86AudioNext exec "~/.bin/player next"
+bindsym XF86AudioPrev exec "~/.bin/player previous"
+bindsym XF86Display exec "nvidia-setting"
+bindsym XF86KbdBrightnessDown exec "sudo /opt/kbdlight/bin/kbdlight -"
+bindsym XF86KbdBrightnessUp exec "sudo /opt/kbdlight/bin/kbdlight +"
+bindsym XF86TouchpadToggle exec "synclient TouchpadOff=$(synclient | awk '/TouchpadOff/ {print ($3+1)%2}')"
+
+## Alsamixer
+bindsym $mod+Shift+a exec "urxvt -e alsamixer"
+
+## Print screen (Scrot needed)
+bindsym Print exec "scrot -e 'mv $f ~/Pictures/Screenshots/'"
+
+## Lock screen (i3lock needed)
+bindsym $mod+Control+l exec "i3lock -c FF0000"
+
+## Autostart applications
+exec setxkbmap gb
+exec --no-startup-id urxvtd -q -o -f
+exec --no-startup-id compton -b
+exec --no-startup-id dunst
+exec --no-startup-id feh --bg-fill --randomize ~/Pictures/Wallpapers/*
+exec --no-startup-id unclutter --restore
+exec --no-startup-id numlockx
+exec --no-startup-id clipit 
+exec --no-startup-id i3-msg 'workspace 1; exec urxvt -e tmux'
+
+## Application variables
+for_window [class="^URxvt"] border none
+for_window [class="^steam"] floating enable
+for_window [class="^mpv"] floating enable
+for_window [class="^opengl"] floating enable
+
+## Workspaces on specific monitors
+#workspace 1 output DVI-I-1
+#workspace 2 output DVI-D-0

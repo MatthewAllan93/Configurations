@@ -1,0 +1,10 @@
+# Zathura configuration file.
+set default-fg "#C31014"
+set default-bg "#202020"
+set inputbar-fg "#C31014"
+set inputbar-bg "#202020"
+set notification-fg "#C31014"
+set notification-bg "#202020"
+set statusbar-fg "#C31014"
+set statusbar-bg "#202020"
+set font "Terminus 9"

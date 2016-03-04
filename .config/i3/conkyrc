@@ -1,0 +1,56 @@
+## Conky configuration file for i3 window manager.
+
+background no
+out_to_console yes
+out_to_x no
+max_text_width 0
+own_window no
+update_interval 0.5
+total_run_times 0
+short_units yes
+if_up_strictness address
+use_spacer right
+override_utf8_locale no
+cpu_avg_samples 2
+TEXT
+,[
+## Pacman
+{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+{"full_text":" [${execi 200 checkupdates | wc -l}]","color":"\#808080","separator":false,"separator_block_width":6},\
+## AUR
+{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+{"full_text":" [${execi 1900 cower -u | wc -l}]","color":"\#808080","separator":false,"separator_block_width":6},\
+## Kernel
+{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+{"full_text":" [${kernel}]","color":"\#808080","separator":false,"separator_block_width":6},\
+#{ "full_text": ": ${kernel}","color":"\#C31014"},
+## Wifi
+{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+{"full_text":" [${wireless_essid wlp4s0}]","color":"\#808080","separator":false,"separator_block_width":6},\
+{"full_text":" [${addr wlp4s0}]","color":"\#808080","separator":false,"separator_block_width":6},\
+{"full_text":" [${downspeed wlp4s0}]","color":"\#808080","separator":false,"separator_block_width":6},\
+{"full_text":" [${upspeed wlp4s0}]","color":"\#808080","separator":false,"separator_block_width":6},\
+#{"full_text": ": [${downspeed wlp4s0}] ", "color":"\#C31014", "separator": false, "separator_block_width":6},\
+## Finds Current Volume. May Need Modifying Depending On Your Setup.
+{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+{"full_text":" ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6}","color":"\#808080","separator":false,"separator_block_width":6},\
+#{"full_text": ": ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6} ", "color":"\#C31014"},
+## Brightness
+#{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+#{"full_text":"[${exec xbacklight| awk '{printf("%d\n",$1 + 0.5)}'}%] ","color":"\#808080","separator":false,"separator_block_width":6},\
+#{ "full_text": ": ${exec xbacklight| awk '{printf("%d\n",$1 + 0.5)}'}% ", "color":"\#C31014"},
+## CPU
+#{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+#{"full_text":"[$cpu%]","color":"\#808080","separator":false,"separator_block_width":6},\
+#{"full_text": " :[$cpu%] ", "color":"\#C31014", "separator": false, "separator_block_width":6},\
+## Battery 
+#{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+#{"full_text":"[${battery_percent BAT1}%]","color":"\#808080","separator":false,"separator_block_width":6},\
+#{"full_text": ":[${battery_percent BAT1}%] ","color":"\#C31014"},
+## Calender/Time
+{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+{"full_text":"${time %A %B %d %Y}","color":"\#808080","separator":false},\
+#{"full_text": " :${time %a %d %b} ${time %H:%M:%S} ","color": "\#C31014", "separator": false},
+{"full_text":" ","color":"\#C31014","separator":false,"separator_block_width":6},\
+{"full_text":"${time %I:%M:%S%P} ","color":"\#808080","separator":false}
+]
